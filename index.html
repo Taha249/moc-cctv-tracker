@@ -325,18 +325,36 @@ function progress(s){
     got += wt * (v === "Done" || v === "N/A" ? 1 : v === "In progress" ? .5 : 0); }
   return tot ? got/tot : 0;
 }
-function status(s){
-  if(s.onHold) return "On hold";
-  if((s.stages||{}).handover === "Done") return "Completed";
-  const p = planned(s);
-  if(p.end && todayD() > p.end) return "Delayed";
-  return progress(s) > 0 ? "In progress" : "Not started";
+/* Delay in working days against the planned finish:
+   - finished sites: actual finish vs planned finish
+   - open sites: the later of today (once past planned finish) and the forecast finish
+     (actual start + planned site days), vs planned finish
+   - not-started sites whose planned start has passed: forecast = today + planned site days */
+function wdAfter(d, k){ return workday(iso(d), k); }
+function forecastEnd(s){
+  const p = planned(s); if(!p.end) return null;
+  if(s.actualFinish) return toD(s.actualFinish);
+  const td = todayD(); const dur = Math.max(1, s.days||1) - 1;
+  if(s.actualStart) return wdAfter(toD(s.actualStart), dur);
+  if(progress(s) === 0 && td > p.start) return wdAfter(td, dur);
+  return p.end;
 }
 function delay(s){
   const p = planned(s); if(!p.end) return null;
-  if(s.actualFinish){ const f = toD(s.actualFinish); return f > p.end ? netWD(p.end, f) - 1 : 0; }
-  if((s.stages||{}).handover !== "Done" && todayD() > p.end) return netWD(p.end, todayD()) - 1;
-  return null;
+  const done = (s.stages||{}).handover === "Done";
+  let f = forecastEnd(s);
+  if(!done && !s.actualFinish && todayD() > p.end && todayD() > f) f = todayD();
+  if(done && !s.actualFinish) return 0;
+  return f > p.end ? netWD(p.end, f) - 1 : 0;
+}
+function lateStart(s){ const p = planned(s); if(!p.start) return 0;
+  if(s.actualStart){ const a = toD(s.actualStart); return a > p.start ? netWD(p.start, a) - 1 : 0; }
+  const td = todayD(); return (progress(s) === 0 && td > p.start) ? netWD(p.start, td) - 1 : 0; }
+function status(s){
+  if(s.onHold) return "On hold";
+  if((s.stages||{}).handover === "Done") return "Completed";
+  if(delay(s) > 0) return "Delayed";
+  return (progress(s) > 0 || s.actualStart) ? "In progress" : "Not started";
 }
 function camsInstalled(s){
   const st = s.stages || {};
@@ -384,14 +402,18 @@ const dis = () => S.canWrite ? "" : "disabled";
 
 
 /* ---- needs attention: every item that needs a decision, most severe first ---- */
-const SEV = {"Delayed":0,"Overdue issue":1,"Late start":2,"High-priority issue":3,"On hold":4,"Material short":5};
-const SEVC = {"Delayed":"var(--bad)","Overdue issue":"var(--bad)","Late start":"var(--hold)","High-priority issue":"var(--hold)","On hold":"var(--hold)","Material short":"var(--prog)"};
+const SEV = {"Delayed":0,"Overdue issue":1,"Late start":2,"High-priority issue":3,"On hold":4,"Material short":5,"Finished late":6};
+const SEVC = {"Finished late":"var(--ink3)","Delayed":"var(--bad)","Overdue issue":"var(--bad)","Late start":"var(--hold)","High-priority issue":"var(--hold)","On hold":"var(--hold)","Material short":"var(--prog)"};
 function attention(L){
   const td = todayD(), items = [];
   for(const s of L){
     const st = status(s), p = planned(s), pr = progress(s);
-    if(st === "Delayed"){ const d = delay(s); items.push({s, type:"Delayed", why:`${d} working day${d===1?"":"s"} past planned finish (${dShort(p.end)}) · ${pct(pr)} complete`, k:-d}); }
-    else if(st === "Not started" && p.start && td > p.start){ const d = netWD(p.start, td) - 1; if(d > 0) items.push({s, type:"Late start", why:`Planned to start ${dShort(p.start)} · not started yet (${d} working day${d===1?"":"s"})`, k:-d}); }
+    const pl = (n,w) => `${n} working day${n===1?"":"s"}${w?" "+w:""}`;
+    if(st === "Delayed"){ const d = delay(s), ls = lateStart(s), f = forecastEnd(s);
+      const why = s.actualFinish ? `Finished ${dShort(f)}, ${pl(d)} after planned finish (${dShort(p.end)}) · handover not signed` : td > p.end ? `${pl(d)} past planned finish (${dShort(p.end)})` : `Forecast finish ${dShort(f)} vs planned ${dShort(p.end)} (+${pl(d)})`;
+      items.push({s, type:"Delayed", why:`${why}${ls?` · started ${pl(ls,"late")}`:""}${(s.actualStart||s.actualFinish||pr>0)?"":" · not started"} · ${pct(pr)} complete`, k:-d}); }
+    else if(st === "Not started" && lateStart(s) > 0){ const d = lateStart(s); items.push({s, type:"Late start", why:`Planned to start ${dShort(p.start)} · not started yet (${pl(d)})`, k:-d}); }
+    if(st === "Completed" && delay(s) > 0){ const d = delay(s); items.push({s, type:"Finished late", why:`Finished ${dShort(forecastEnd(s))}, ${pl(d)} after planned finish (${dShort(p.end)})`, k:-d}); }
     if(st === "On hold") items.push({s, type:"On hold", why:(s.remarks ? s.remarks : "Marked on hold") + ` · planned ${dShort(p.start)} - ${dShort(p.end)}`, k:0});
     if(st !== "Completed" && st !== "On hold" && p.start){ const to = netWD(td, p.start) - 1; const m = matPct(s);
       if(m < 1 && !["Done","N/A"].includes((s.stages||{}).materials) && (td >= p.start || to <= 10)){ const short = MATS.filter(([k])=>((s.delivered||{})[k]||0) < ((s.required||{})[k]||0)).map(([,l])=>l);
@@ -425,7 +447,7 @@ function vDash(){
     <div class="kpis">
       <div class="kpi ok"><span class="l">Completed</span><span class="v num">${T.by.Completed}</span><span class="s">sites handed over</span></div>
       <div class="kpi prog"><span class="l">In progress</span><span class="v num">${T.by["In progress"]}</span><span class="s">sites with work started</span></div>
-      <div class="kpi bad"><span class="l">Delayed</span><span class="v num">${T.by.Delayed}</span><span class="s">past planned finish</span></div>
+      <div class="kpi bad"><span class="l">Delayed</span><span class="v num">${T.by.Delayed}</span><span class="s">behind plan now · ${T.L.filter(s=>status(s)==="Completed"&&delay(s)>0).length} finished late</span></div>
       <div class="kpi"><span class="l">Not started</span><span class="v num">${T.by["Not started"]}</span><span class="s">on hold: ${T.by["On hold"]}</span></div>
       <div class="kpi"><span class="l">Cameras installed</span><span class="v num">${fmt(T.installed)}</span><span class="s">of ${fmt(T.cams)} (${pct(T.cams?T.installed/T.cams:0)})</span></div>
       <div class="kpi"><span class="l">Earned value</span><span class="v num">${fmt(Math.round(T.earned))}</span><span class="s">SAR of ${fmt(T.value)} excl. VAT</span></div>
@@ -578,7 +600,7 @@ function vSet(){
     </div></div>
   <div class="panel"><h2>Stage weights <span class="sub">how much each stage counts towards % complete · total ${tot}${tot!==100?' <span class="over">(should be 100)</span>':""}</span></h2>
     <div class="form">${STAGES.map(([k,l])=>`<div class="field"><label for="w_${k}">${l}</label><input id="w_${k}" type="number" min="0" max="100" data-w="${k}" value="${Number(w[k])||0}" ${dis()}></div>`).join("")}</div>
-    <p style="color:var(--ink3);font-size:12px;margin:12px 0 0">Done or N/A counts 100% of a stage, In progress 50%, Not started 0%. A site is Completed when "Handover signed" is Done, and Delayed when today is past its planned finish and handover is not signed.</p></div>
+    <p style="color:var(--ink3);font-size:12px;margin:12px 0 0">Done or N/A counts 100% of a stage, In progress 50%, Not started 0%. A site is Completed when "Handover signed" is Done, and Delayed when it is past its planned finish, or when its actual start (or a missed start date) pushes the forecast finish beyond the planned finish.</p></div>
   <div class="panel"><h2>Data & backup <span class="sub">all updates are saved in this browser on this device</span></h2>
     <p style="color:var(--ink2);font-size:13px;margin:0 0 12px">Export a backup regularly and send it to the project manager, or import a colleague's backup to see their latest updates. Importing replaces the data in this browser.</p>
     <div class="toolbar"><button class="btn primary" id="bkExport">Export backup (JSON)</button>
