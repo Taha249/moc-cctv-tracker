@@ -198,6 +198,13 @@ select.cellsel{border:1px solid var(--line2);background:var(--surface);border-ra
 .attn .row:hover{border-color:var(--brand)}
 .attn .row .t{flex:1;min-width:0}
 .attn .row .t div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.attn .row{border-left:3px solid var(--c,var(--line));overflow:hidden}
+.attn .row > .mono,.attn .row > .pill,.attn .row > .tag,.attn .row > .team{flex:none}
+.attn .row .why{font-size:12px;color:var(--ink3)}
+.attn.scroll{max-height:430px;overflow-y:auto;padding-right:2px}
+.attn-sum{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-size:11.5px;font-weight:600;color:var(--c);border:1px solid var(--c);white-space:nowrap;background:var(--surface)}
+.grid2{align-items:start}
 .empty{color:var(--ink3);font-size:13px;padding:6px 0}
 .donut{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .donut ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
@@ -331,7 +338,12 @@ function delay(s){
   if((s.stages||{}).handover !== "Done" && todayD() > p.end) return netWD(p.end, todayD()) - 1;
   return null;
 }
-function camsInstalled(s){ const n = S.logs.filter(l => l.site === s.n).reduce((a,l) => a + (Number(l.cams)||0), 0); return Math.min(n, s.cams); }
+function camsInstalled(s){
+  const st = s.stages || {};
+  if(["Done","N/A"].includes(st.cameras) || st.handover === "Done") return s.cams;   // stage marked done = all BOQ cameras installed
+  const n = S.logs.filter(l => l.site === s.n).reduce((a,l) => a + (Number(l.cams)||0), 0);
+  return Math.min(n, s.cams);
+}
 function openIssues(n){ return S.issues.filter(i => i.site === n && i.status !== "Closed"); }
 function matPct(s){ let a = 0, c = 0; for(const [k] of MATS){ const r = (s.required||{})[k]||0; if(r > 0){ c++; a += Math.min(1, ((s.delivered||{})[k]||0)/r); } } return c ? a/c : 1; }
 const siteList = () => Object.values(S.sites).sort((a,b) => a.n - b.n);
@@ -370,12 +382,38 @@ const stageBar = s => `<span class="stagebar" aria-label="Stages">${STAGES.map((
 const mini = (v, color) => `<span class="mini"><span class="bar"><i style="width:${Math.round(v*100)}%${color?`;background:${color}`:""}"></i></span><span>${pct(v)}</span></span>`;
 const dis = () => S.canWrite ? "" : "disabled";
 
+
+/* ---- needs attention: every item that needs a decision, most severe first ---- */
+const SEV = {"Delayed":0,"Overdue issue":1,"Late start":2,"High-priority issue":3,"On hold":4,"Material short":5};
+const SEVC = {"Delayed":"var(--bad)","Overdue issue":"var(--bad)","Late start":"var(--hold)","High-priority issue":"var(--hold)","On hold":"var(--hold)","Material short":"var(--prog)"};
+function attention(L){
+  const td = todayD(), items = [];
+  for(const s of L){
+    const st = status(s), p = planned(s), pr = progress(s);
+    if(st === "Delayed"){ const d = delay(s); items.push({s, type:"Delayed", why:`${d} working day${d===1?"":"s"} past planned finish (${dShort(p.end)}) · ${pct(pr)} complete`, k:-d}); }
+    else if(st === "Not started" && p.start && td > p.start){ const d = netWD(p.start, td) - 1; if(d > 0) items.push({s, type:"Late start", why:`Planned to start ${dShort(p.start)} · not started yet (${d} working day${d===1?"":"s"})`, k:-d}); }
+    if(st === "On hold") items.push({s, type:"On hold", why:(s.remarks ? s.remarks : "Marked on hold") + ` · planned ${dShort(p.start)} - ${dShort(p.end)}`, k:0});
+    if(st !== "Completed" && st !== "On hold" && p.start){ const to = netWD(td, p.start) - 1; const m = matPct(s);
+      if(m < 1 && !["Done","N/A"].includes((s.stages||{}).materials) && (td >= p.start || to <= 10)){ const short = MATS.filter(([k])=>((s.delivered||{})[k]||0) < ((s.required||{})[k]||0)).map(([,l])=>l);
+        items.push({s, type:"Material short", why:`${pct(m)} delivered · short: ${short.slice(0,4).join(", ")}${short.length>4?` +${short.length-4}`:""} · starts ${dShort(p.start)}`, k:-(1-m)}); } }
+  }
+  for(const i of S.issues){ if(i.status === "Closed") continue; const s = S.sites[i.site]; if(!s) continue;
+    if(i.due && toD(i.due) < td){ const d = Math.round((td - toD(i.due))/864e5); items.push({s, type:"Overdue issue", why:`${i.desc} · due ${dShort(toD(i.due))} (${d} day${d===1?"":"s"} overdue)${i.owner?" · "+i.owner:""}`, k:-d}); }
+    else if(i.priority === "High") items.push({s, type:"High-priority issue", why:`${i.desc}${i.due?" · due "+dShort(toD(i.due)):""}${i.owner?" · "+i.owner:""}`, k:0}); }
+  return items.sort((a,b)=> SEV[a.type]-SEV[b.type] || a.k-b.k || a.s.n-b.s.n);
+}
+function attnView(items){
+  if(!items.length) return `<div class="empty">Nothing needs attention: no delays, late starts, holds, overdue or high-priority issues, or material shortages.</div>`;
+  const counts = {}; items.forEach(x=>counts[x.type]=(counts[x.type]||0)+1);
+  return `<div class="attn-sum">${Object.keys(SEV).filter(t=>counts[t]).map(t=>`<span class="tag" style="--c:${SEVC[t]}">${t} <b class="num">${counts[t]}</b></span>`).join("")}</div>
+    <div class="attn scroll">${items.map(x=>`<div class="row" data-site="${x.s.n}" tabindex="0" style="--c:${SEVC[x.type]}"><span class="mono">${String(x.s.n).padStart(2,"0")}</span>
+      <div class="t"><div class="sname">${esc(x.s.en)}</div><div class="why">${esc(x.why)}</div></div><span class="tag" style="--c:${SEVC[x.type]}">${x.type}</span></div>`).join("")}</div>`;
+}
 /* ================= views ================= */
 function vDash(){
   const T = totals(); if(!T.L.length) return `<div class="panel"><div class="empty">No sites loaded yet.</div></div>`;
-  const attn = T.L.filter(s=>["Delayed","On hold"].includes(status(s)) || openIssues(s.n).some(i=>i.priority==="High"));
-  const overdue = S.issues.filter(i=>i.status!=="Closed" && i.due && toD(i.due) < todayD());
-  const nextUp = T.L.filter(s=>status(s)==="Not started").sort((a,b)=>a.startWD-b.startWD).slice(0,5);
+  const attn = attention(T.L);
+  const td0 = todayD(); const nextUp = T.L.filter(s=>status(s)==="Not started" && planned(s).start >= td0).sort((a,b)=>a.startWD-b.startWD).slice(0,6);
   return `
   <div class="hero">
     <div class="panel overall">
@@ -414,9 +452,8 @@ function vDash(){
   </div>
 
   <div class="grid2">
-    <div class="panel"><h2>Needs attention</h2><div class="attn">${attn.length ? attn.map(s=>`<div class="row" data-site="${s.n}" tabindex="0"><span class="mono">${String(s.n).padStart(2,"0")}</span><div class="t"><div class="sname">${esc(s.en)}</div><div style="font-size:12px;color:var(--ink3)">${openIssues(s.n).length} open issue(s)${delay(s)?` · ${delay(s)} working days late`:""}</div></div>${pill(status(s))}</div>`).join("") : `<div class="empty">Nothing delayed or on hold.</div>`}
-      ${overdue.length ? `<div style="margin-top:6px;font-size:12px" class="over">${overdue.length} issue(s) past their due date - see Issues.</div>` : ""}</div></div>
-    <div class="panel"><h2>Next sites to start</h2><div class="attn">${nextUp.length ? nextUp.map(s=>{ const p=planned(s); return `<div class="row" data-site="${s.n}" tabindex="0"><span class="mono">${String(s.n).padStart(2,"0")}</span><div class="t"><div class="sname">${esc(s.en)}</div><div style="font-size:12px;color:var(--ink3)">${dShort(p.start)} - ${dShort(p.end)} · ${s.cams} cameras · ${s.days} days</div></div>${teamTag(s.team)}</div>`; }).join("") : `<div class="empty">All sites have started.</div>`}</div></div>
+    <div class="panel"><h2>Needs attention <span class="sub">${attn.length ? attn.length + " item" + (attn.length>1?"s":"") : "all clear"}</span></h2>${attnView(attn)}</div>
+    <div class="panel"><h2>Next sites to start</h2><div class="attn">${nextUp.length ? nextUp.map(s=>{ const p=planned(s); return `<div class="row" data-site="${s.n}" tabindex="0"><span class="mono">${String(s.n).padStart(2,"0")}</span><div class="t"><div class="sname">${esc(s.en)}</div><div style="font-size:12px;color:var(--ink3)">${dShort(p.start)} - ${dShort(p.end)} · ${s.cams} cameras · ${s.days} days</div></div>${teamTag(s.team)}</div>`; }).join("") : `<div class="empty">No upcoming site starts - check late starts under Needs attention.</div>`}</div></div>
   </div>`;
 }
 
@@ -588,7 +625,8 @@ function render(){
   const inForm = active && active.closest && active.closest("#logForm,#issForm");
   if(!inForm){ const el = $("#v-"+S.tab); el.innerHTML = VIEWS[S.tab](); }
   const dr = $("#drawerRoot"); const inDrawer = active && active.closest && active.closest(".drawer") && keepId;
-  if(!inDrawer){ dr.innerHTML = S.open ? vDrawer() : ""; }
+  if(!S.open){ if(dr.innerHTML) dr.innerHTML = ""; }
+  else if(!inDrawer){ dr.innerHTML = vDrawer(); }
   if(keepId && !inForm && !inDrawer){ const n = document.getElementById(keepId); if(n){ n.focus(); if(n.setSelectionRange && n.type==="search"){ const v=n.value.length; n.setSelectionRange(v,v); } } }
 }
 function setTab(t){ S.tab = t; S.confirm = null; document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===t)); for(const k in VIEWS) $("#v-"+k).hidden = k!==t; try{ localStorage.setItem("moc_tab", t); }catch(e){} render(); }
