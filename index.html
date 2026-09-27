@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Heritage CCTV Rollout</title>
+<meta name="description" content="Rollout tracker for CCTV systems at 34 Ministry of Culture heritage sites (SmartLife).">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>
+/* Standalone data layer: stores all tracker data in this browser (localStorage). */
+(function(){
+  var KEY="moc_cctv_tracker_v1", SEED={"sites/s01": {"n": 1, "en": "Heritage Commission Branch - Jazan", "ar": "فرع هيئة التراث جازان", "team": 1, "cams": 42, "value": 98640, "startWD": 41, "endWD": 43, "days": 3, "required": {"cams": 42, "nvr": 1, "hdd": 8, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 1560}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s02": {"n": 2, "en": "Al-Ukhdood Archaeological Site - Najran", "ar": "موقع الأخدود نجران", "team": 1, "cams": 25, "value": 80115, "startWD": 45, "endWD": 47, "days": 3, "required": {"cams": 25, "nvr": 1, "hdd": 5, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s03": {"n": 3, "en": "Al-Qassar Heritage Village - Jazan", "ar": "قرية القصار التراثية بجازان", "team": 1, "cams": 21, "value": 65685, "startWD": 49, "endWD": 51, "days": 3, "required": {"cams": 21, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s04": {"n": 4, "en": "Rijal Almaa Village", "ar": "قرية رجال ألمع", "team": 1, "cams": 39, "value": 81275, "startWD": 53, "endWD": 55, "days": 3, "required": {"cams": 39, "nvr": 1, "hdd": 8, "sw": 3, "fpp": 0, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 2100}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s05": {"n": 5, "en": "Historic Emirate Palace - Najran", "ar": "قصر الإمارة التاريخي نجران", "team": 1, "cams": 41, "value": 80475, "startWD": 57, "endWD": 59, "days": 3, "required": {"cams": 41, "nvr": 1, "hdd": 8, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 2200}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s06": {"n": 6, "en": "Asir Regional Museum - Abha", "ar": "متحف عسير الإقليمي - أبها", "team": 1, "cams": 82, "value": 153575, "startWD": 61, "endWD": 63, "days": 3, "required": {"cams": 82, "nvr": 1, "hdd": 16, "sw": 2, "fpp": 0, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 4400}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s07": {"n": 7, "en": "Jurash Archaeological Site Visitor Centre - Khamis Mushait", "ar": "مركز زوار جرش الأثري خميس مشيط", "team": 1, "cams": 18, "value": 61530, "startWD": 65, "endWD": 67, "days": 3, "required": {"cams": 18, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 840}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s08": {"n": 8, "en": "National Heritage Office - Bisha", "ar": "مكتب التراث الوطني بيشة", "team": 1, "cams": 23, "value": 53675, "startWD": 69, "endWD": 71, "days": 3, "required": {"cams": 23, "nvr": 1, "hdd": 5, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 0, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s09": {"n": 9, "en": "Dhi Ain Village Visitor Centre", "ar": "مركز زوار قرية ذي عين", "team": 1, "cams": 34, "value": 103130, "startWD": 73, "endWD": 75, "days": 3, "required": {"cams": 34, "nvr": 1, "hdd": 8, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s10": {"n": 10, "en": "Heritage Commission Office, Historic Fayd City - Fayd Museum", "ar": "مكتب هيئة التراث بمدينة فيد التاريخية - متحف فيد", "team": 2, "cams": 14, "value": 36190, "startWD": 41, "endWD": 42, "days": 2, "required": {"cams": 14, "nvr": 1, "hdd": 3, "sw": 0, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 650}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s11": {"n": 11, "en": "Al-Zureib Castle", "ar": "قلعة الزريب", "team": 2, "cams": 35, "value": 86705, "startWD": 44, "endWD": 46, "days": 3, "required": {"cams": 35, "nvr": 1, "hdd": 7, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s12": {"n": 12, "en": "Al-Khuraibah Visitor Centre", "ar": "مركز زوار الخريبة", "team": 2, "cams": 10, "value": 32080, "startWD": 48, "endWD": 49, "days": 2, "required": {"cams": 10, "nvr": 1, "hdd": 2, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 500}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s13": {"n": 13, "en": "Al-Rajajil Columns Visitor Centre", "ar": "مركز زوار أعمدة الرجاجيل", "team": 2, "cams": 13, "value": 35285, "startWD": 51, "endWD": 52, "days": 2, "required": {"cams": 13, "nvr": 1, "hdd": 3, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 500}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s14": {"n": 14, "en": "Kaf School - Al-Qurayyat, Al-Jouf", "ar": "مدرسة كاف بالقريات - الجوف", "team": 2, "cams": 10, "value": 29120, "startWD": 54, "endWD": 55, "days": 2, "required": {"cams": 10, "nvr": 1, "hdd": 3, "sw": 0, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 500}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s15": {"n": 15, "en": "Tabuk Castle", "ar": "قلعة تبوك", "team": 2, "cams": 34, "value": 67540, "startWD": 57, "endWD": 59, "days": 3, "required": {"cams": 34, "nvr": 1, "hdd": 7, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s16": {"n": 16, "en": "Heritage Commission Building - Umluj", "ar": "مبنى هيئة التراث بأملج", "team": 2, "cams": 16, "value": 42850, "startWD": 61, "endWD": 63, "days": 3, "required": {"cams": 16, "nvr": 1, "hdd": 8, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 800}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s17": {"n": 17, "en": "King Abdulaziz Castle - Duba", "ar": "قلعة الملك عبدالعزيز بضباء", "team": 2, "cams": 50, "value": 121800, "startWD": 65, "endWD": 67, "days": 3, "required": {"cams": 50, "nvr": 1, "hdd": 10, "sw": 2, "fpp": 0, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s18": {"n": 18, "en": "Al-Qawoush and Al-Balda Castle", "ar": "القاووش، قلعة البلدة", "team": 3, "cams": 13, "value": 44245, "startWD": 41, "endWD": 42, "days": 2, "required": {"cams": 13, "nvr": 1, "hdd": 3, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 700}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s19": {"n": 19, "en": "Heritage Commission Branch - Arar", "ar": "فرع هيئة التراث بعرعر", "team": 3, "cams": 20, "value": 41670, "startWD": 44, "endWD": 46, "days": 3, "required": {"cams": 20, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 650}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s20": {"n": 20, "en": "King Abdulaziz Castle - Haql", "ar": "قلعة الملك عبدالعزيز بحقل", "team": 3, "cams": 30, "value": 81900, "startWD": 48, "endWD": 50, "days": 3, "required": {"cams": 30, "nvr": 1, "hdd": 7, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s21": {"n": 21, "en": "Heritage Commission Office - Al-Bad' (Maghayir Shu'ayb Visitor Centre)", "ar": "مكتب هيئة التراث بالبدع (مركز زوار مغاير شعيب)", "team": 3, "cams": 18, "value": 51610, "startWD": 52, "endWD": 54, "days": 3, "required": {"cams": 18, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 800}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s22": {"n": 22, "en": "Tabuk Regional Museum", "ar": "متحف تبوك الإقليمي", "team": 3, "cams": 54, "value": 138451, "startWD": 56, "endWD": 58, "days": 3, "required": {"cams": 54, "nvr": 1, "hdd": 18, "sw": 2, "fpp": 1, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 4512}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s23": {"n": 23, "en": "Heritage Commission Building - Fayd (Abdul Latif Jameel Centre)", "ar": "مبنى هيئة التراث بفيد (مركز عبداللطيف جميل)", "team": 3, "cams": 40, "value": 94536, "startWD": 60, "endWD": 62, "days": 3, "required": {"cams": 40, "nvr": 1, "hdd": 8, "sw": 1, "fpp": 0, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 1502}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s24": {"n": 24, "en": "Al-Jouf Regional Museum", "ar": "متحف الجوف الإقليمي", "team": 3, "cams": 91, "value": 200460, "startWD": 64, "endWD": 66, "days": 3, "required": {"cams": 91, "nvr": 1, "hdd": 13, "sw": 2, "fpp": 1, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 5300}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s25": {"n": 25, "en": "Hail Regional Museum", "ar": "متحف حائل الإقليمي", "team": 3, "cams": 91, "value": 199660, "startWD": 68, "endWD": 70, "days": 3, "required": {"cams": 91, "nvr": 1, "hdd": 14, "sw": 2, "fpp": 1, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 5100}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s26": {"n": 26, "en": "Urwa Palace", "ar": "قصر عروة", "team": 4, "cams": 17, "value": 60045, "startWD": 41, "endWD": 43, "days": 3, "required": {"cams": 17, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 550}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s27": {"n": 27, "en": "Beit Al-Khatib", "ar": "بيت الخطيب", "team": 4, "cams": 71, "value": 124995, "startWD": 45, "endWD": 47, "days": 3, "required": {"cams": 71, "nvr": 1, "hdd": 14, "sw": 2, "fpp": 2, "ups": 1, "pc": 1, "tv": 3, "rack": 1, "cat6": 1500}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s28": {"n": 28, "en": "Beit Al-Jabarti", "ar": "بيت الجبرتي", "team": 4, "cams": 22, "value": 48400, "startWD": 49, "endWD": 51, "days": 3, "required": {"cams": 22, "nvr": 1, "hdd": 5, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 930}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s29": {"n": 29, "en": "Beit Al-Sayegh", "ar": "بيت الصائغ", "team": 4, "cams": 20, "value": 38465, "startWD": 53, "endWD": 55, "days": 3, "required": {"cams": 20, "nvr": 1, "hdd": 4, "sw": 0, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 500}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s30": {"n": 30, "en": "Cultural Buildings (1-2)", "ar": "المباني الثقافية (1-2)", "team": 4, "cams": 33, "value": 74395, "startWD": 57, "endWD": 59, "days": 3, "required": {"cams": 33, "nvr": 1, "hdd": 7, "sw": 2, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 800}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s31": {"n": 31, "en": "Cultural Buildings (3-4-5)", "ar": "المباني الثقافية (3-4-5)", "team": 4, "cams": 19, "value": 42395, "startWD": 61, "endWD": 63, "days": 3, "required": {"cams": 19, "nvr": 1, "hdd": 6, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 475}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s32": {"n": 32, "en": "Omar Bin Al-Khattab School", "ar": "مدرسة عمر بن الخطاب", "team": 4, "cams": 22, "value": 47840, "startWD": 65, "endWD": 67, "days": 3, "required": {"cams": 22, "nvr": 1, "hdd": 5, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 400}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s33": {"n": 33, "en": "Jubbah Visitor Centre", "ar": "مركز الزوار مدينة جبة", "team": 4, "cams": 18, "value": 44830, "startWD": 69, "endWD": 71, "days": 3, "required": {"cams": 18, "nvr": 1, "hdd": 4, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 2, "rack": 1, "cat6": 530}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "sites/s34": {"n": 34, "en": "Bir Sisra Visitor Centre", "ar": "مركز زوار بئر سيسرا", "team": 4, "cams": 15, "value": 38695, "startWD": 73, "endWD": 74, "days": 2, "required": {"cams": 15, "nvr": 1, "hdd": 3, "sw": 1, "fpp": 1, "ups": 1, "pc": 1, "tv": 1, "rack": 1, "cat6": 675}, "delivered": {"cams": 0, "nvr": 0, "hdd": 0, "sw": 0, "fpp": 0, "ups": 0, "pc": 0, "tv": 0, "rack": 0, "cat6": 0}, "stages": {"survey": "Not started", "layout": "Not started", "materials": "Not started", "cabling": "Not started", "rack": "Not started", "cameras": "Not started", "config": "Not started", "testing": "Not started", "training": "Not started", "handover": "Not started", "asbuilt": "Not started"}, "onHold": false, "actualStart": "", "actualFinish": "", "cert": "", "invoiced": false, "invoiceAmount": 0, "engineer": "", "remarks": ""}, "settings/project": {"startDate": "2026-10-04", "weights": {"survey": 5, "layout": 5, "materials": 10, "cabling": 15, "rack": 10, "cameras": 20, "config": 10, "testing": 10, "training": 5, "handover": 5, "asbuilt": 5}}};
+  function load(){ try{ var s=localStorage.getItem(KEY); if(s) return JSON.parse(s); }catch(e){} return JSON.parse(JSON.stringify(SEED)); }
+  var DATA=load(), subs=[];
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(DATA)); }catch(e){} subs.forEach(function(f){ try{f();}catch(e){} }); }
+  function snap(p){ var d=DATA[p]; return {id:p.split("/").pop(), exists:!!d, data:function(){return d;}, metadata:{fromCache:false,hasPendingWrites:false}}; }
+  function merge(t,p){ for(var k in p){ if(p[k]&&typeof p[k]==="object"&&!Array.isArray(p[k])){ if(!t[k]||typeof t[k]!=="object") t[k]={}; merge(t[k],p[k]); } else t[k]=p[k]; } }
+  function docRef(p){ return { id:p.split("/").pop(), path:p,
+    get:function(){ return Promise.resolve(snap(p)); },
+    set:function(d){ DATA[p]=JSON.parse(JSON.stringify(d)); save(); return Promise.resolve(); },
+    update:function(d){ if(!DATA[p]) return Promise.reject({code:"invalid_argument"}); merge(DATA[p], JSON.parse(JSON.stringify(d))); save(); return Promise.resolve(); },
+    delete:function(){ delete DATA[p]; save(); return Promise.resolve(); },
+    onSnapshot:function(next){ var f=function(){ next(snap(p)); }; subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f;}); }; } }; }
+  function colRef(c){ return { path:c,
+    doc:function(id){ return docRef(c+"/"+(id||("r"+Date.now().toString(36)+Math.random().toString(36).slice(2,8)))); },
+    onSnapshot:function(next){ var f=function(){ var ds=Object.keys(DATA).filter(function(k){ return k.indexOf(c+"/")===0 && k.split("/").length===2; }).sort().map(snap); next({docs:ds,size:ds.length,empty:!ds.length,docChanges:function(){return [];},metadata:{fromCache:false,hasPendingWrites:false}}); };
+      subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f;}); }; } }; }
+  var db={ doc:docRef, collection:colRef };
+  var downloads={ save:function(r){ var blob=new Blob([r.data],{type:"text/csv;charset=utf-8"}); var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=r.filename; document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500); return Promise.resolve({status:"saved"}); } };
+  window.addEventListener("storage", function(e){ if(e.key===KEY){ DATA=load(); subs.forEach(function(f){f();}); } });
+  window.__backup = {
+    exportJson:function(){ var blob=new Blob([JSON.stringify(DATA,null,1)],{type:"application/json"}); var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="moc-cctv-tracker-backup-"+new Date().toISOString().slice(0,10)+".json"; document.body.appendChild(a); a.click(); setTimeout(function(){a.remove();},500); },
+    importJson:function(file, done){ var r=new FileReader(); r.onload=function(){ try{ var d=JSON.parse(r.result); if(!d["settings/project"]) throw 0; DATA=d; save(); done(true); }catch(e){ done(false); } }; r.readAsText(file); },
+    reset:function(){ DATA=JSON.parse(JSON.stringify(SEED)); save(); } };
+  window.claude = { use:function(n){ return Promise.resolve(n==="db"?db:n==="downloads"?downloads:null); } };
+})();
+</script>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F6F4F8; --surface:#FFFFFF; --surface2:#F1EDF5; --line:#E2DCEA; --line2:#CFC6DB;
+  --ink:#231B2E; --ink2:#5A5066; --ink3:#8A8095;
+  --brand:#5F497A; --brand-soft:#E9E3F1; --accent:#93063B; --accent-soft:#F6E3EA;
+  --t1:#7B4FB0; --t2:#D0417E; --t3:#2F7DD1; --t4:#1E9E77;
+  --ok:#1E7B4C; --ok-bg:#DDF2E6; --prog:#1F5FA8; --prog-bg:#DDEAF8; --bad:#B0233B; --bad-bg:#FBE0E5;
+  --hold:#9A5B00; --hold-bg:#FCEFD6; --idle:#6B6475; --idle-bg:#ECE9F0;
+  --focus:#8064A2; --shadow:0 1px 2px rgba(35,27,46,.06),0 4px 16px rgba(35,27,46,.05);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ar:"IBM Plex Sans Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#16121C; --surface:#1F1928; --surface2:#271F32; --line:#342A40; --line2:#463A55;
+  --ink:#F1ECF6; --ink2:#BDB3C9; --ink3:#8E839C;
+  --brand:#B79FD6; --brand-soft:#2F2540; --accent:#E7789F; --accent-soft:#3A1E2B;
+  --t1:#8F6AD0; --t2:#E0567F; --t3:#3F8FE0; --t4:#22A57C;
+  --ok:#6FD39B; --ok-bg:#15372A; --prog:#7DB3F0; --prog-bg:#172B45; --bad:#F2899B; --bad-bg:#44192A;
+  --hold:#F0B85C; --hold-bg:#3E2C10; --idle:#A79FB3; --idle-bg:#2A2433;
+  --focus:#B79FD6; --shadow:0 1px 2px rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#16121C; --surface:#1F1928; --surface2:#271F32; --line:#342A40; --line2:#463A55;
+  --ink:#F1ECF6; --ink2:#BDB3C9; --ink3:#8E839C;
+  --brand:#B79FD6; --brand-soft:#2F2540; --accent:#E7789F; --accent-soft:#3A1E2B;
+  --t1:#8F6AD0; --t2:#E0567F; --t3:#3F8FE0; --t4:#22A57C;
+  --ok:#6FD39B; --ok-bg:#15372A; --prog:#7DB3F0; --prog-bg:#172B45; --bad:#F2899B; --bad-bg:#44192A;
+  --hold:#F0B85C; --hold-bg:#3E2C10; --idle:#A79FB3; --idle-bg:#2A2433;
+  --focus:#B79FD6; --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.45}
+.num,td.n,.mono{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:1320px;margin:0 auto;padding-inline:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:10px 0}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--brand));flex:none;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.02em}
+.brand h1{font-size:16px;margin:0;line-height:1.2;text-wrap:balance}
+.brand p{margin:0;font-size:12px;color:var(--ink3)}
+.meta{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2)}
+.meta b{color:var(--ink);font-weight:600}
+.live{display:inline-flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ink3)}
+.dot.on{background:var(--ok);box-shadow:0 0 0 3px var(--ok-bg)}
+nav.tabs{width:100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{border:0;background:none;padding:10px 14px;color:var(--ink2);font-weight:500;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--brand);border-bottom-color:var(--accent)}
+nav.tabs button:hover{color:var(--ink)}
+.badge{display:inline-block;min-width:18px;padding:0 5px;margin-left:6px;border-radius:9px;font-size:11px;line-height:18px;background:var(--bad-bg);color:var(--bad);font-weight:600;text-align:center}
+
+main > *, main section, .hero > *, .grid2 > *, .grid3 > *{min-width:0}
+[hidden]{display:none!important}
+main{max-width:1320px;margin:0 auto;padding-inline:16px;padding-block:18px 60px;display:grid;gap:18px}
+.notice{border:1px solid var(--line2);background:var(--surface2);padding:10px 14px;border-radius:10px;color:var(--ink2);font-size:13px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.panel h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);margin:0 0 12px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel h2 .sub{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink3)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+
+/* ---------- KPIs ---------- */
+.hero{display:grid;grid-template-columns:minmax(260px,1.1fr) 3fr;gap:18px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}}
+.overall{display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.overall .big{font-size:56px;font-weight:600;line-height:1;color:var(--brand);letter-spacing:-.02em}
+.overall .big small{font-size:18px;color:var(--ink3);font-weight:500;margin-left:4px}
+.bar{height:10px;border-radius:5px;background:var(--surface2);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:5px 0 0 5px}
+.overall .foot{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);gap:10px;flex-wrap:wrap}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);display:grid;gap:4px;align-content:start}
+.kpi .l{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);font-weight:600}
+.kpi .v{font-size:26px;font-weight:600;line-height:1.1}
+.kpi .s{font-size:12px;color:var(--ink2)}
+.kpi.ok .v{color:var(--ok)} .kpi.prog .v{color:var(--prog)} .kpi.bad .v{color:var(--bad)} .kpi.hold .v{color:var(--hold)}
+.kpi.ok{border-left:3px solid var(--ok)} .kpi.prog{border-left:3px solid var(--prog)} .kpi.bad{border-left:3px solid var(--bad)} .kpi.hold{border-left:3px solid var(--hold)}
+
+/* ---------- pills ---------- */
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.p-completed{background:var(--ok-bg);color:var(--ok)} .p-inprogress{background:var(--prog-bg);color:var(--prog)}
+.p-delayed,.p-high{background:var(--bad-bg);color:var(--bad)} .p-onhold,.p-medium{background:var(--hold-bg);color:var(--hold)} .p-notstarted,.p-low{background:var(--idle-bg);color:var(--idle)}
+.team{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink2);white-space:nowrap}
+.team i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{position:sticky;top:0;background:var(--surface2);color:var(--ink2);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr.click{cursor:pointer}
+tbody tr.click:hover td{background:var(--brand-soft)}
+td.n,th.n{text-align:right}
+.ar{font-family:var(--ar);direction:rtl;color:var(--ink3);font-size:12px}
+.sname{font-weight:600}
+.stagebar{display:flex;gap:3px}
+.stagebar i{width:11px;height:14px;border-radius:3px;background:var(--idle-bg);border:1px solid var(--line2)}
+.stagebar i[data-v="Done"]{background:var(--ok);border-color:var(--ok)}
+.stagebar i[data-v="In progress"]{background:var(--hold);border-color:var(--hold)}
+.stagebar i[data-v="N/A"]{background:repeating-linear-gradient(45deg,var(--line2) 0 2px,transparent 2px 5px);border-color:var(--line2)}
+.mini{display:flex;align-items:center;gap:8px;min-width:120px}
+.mini .bar{flex:1;height:7px}
+.mini span{min-width:36px;text-align:right;font-weight:600;font-size:12px}
+
+/* ---------- toolbar ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1px solid var(--line2);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:500;cursor:pointer;color:var(--ink2)}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--surface)}
+.search{flex:1;min-width:180px;max-width:320px;border:1px solid var(--line2);background:var(--surface);border-radius:8px;padding:7px 10px}
+.btn{border:1px solid var(--line2);background:var(--surface);border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer;color:var(--ink)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:var(--surface)}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.spacer{flex:1}
+
+/* ---------- forms ---------- */
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:end}
+.field{display:grid;gap:4px;min-width:0}
+.field label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink3);font-weight:600}
+.field input,.field select,.field textarea{border:1px solid var(--line2);background:var(--surface);border-radius:8px;padding:7px 9px;width:100%;min-width:0}
+.field textarea{resize:vertical;min-height:60px}
+.field.wide{grid-column:1/-1}
+.cellin{border:1px solid transparent;background:transparent;border-radius:6px;padding:4px 6px;width:70px;text-align:right}
+.cellin:hover,.cellin:focus{border-color:var(--line2);background:var(--surface)}
+select.cellsel{border:1px solid var(--line2);background:var(--surface);border-radius:6px;padding:3px 6px}
+
+/* ---------- gantt ---------- */
+.gantt{overflow-x:auto}
+.gantt svg{display:block}
+.gantt text{fill:var(--ink2);font-size:11px;font-family:var(--sans)}
+.gantt .lbl{fill:var(--ink);font-size:11.5px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--ink2);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:9px;border-radius:2px;display:inline-block}
+
+/* ---------- lists ---------- */
+.hbars{display:grid;gap:10px}
+.hbar{display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center;font-size:13px}
+.hbar .track{height:12px;border-radius:6px;background:var(--surface2);border:1px solid var(--line);overflow:hidden;display:flex}
+.hbar .track i{display:block;height:100%}
+.hbar b{text-align:right;font-weight:600}
+.attn{display:grid;gap:8px}
+.attn .row{display:flex;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--surface)}
+.attn .row:hover{border-color:var(--brand)}
+.attn .row .t{flex:1;min-width:0}
+.attn .row .t div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{color:var(--ink3);font-size:13px;padding:6px 0}
+.donut{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.donut ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+.donut li{display:flex;gap:8px;align-items:center;justify-content:space-between;min-width:150px}
+.donut li b{font-weight:600}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(20,14,28,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(720px,100%);background:var(--bg);z-index:41;overflow-y:auto;box-shadow:-8px 0 30px rgba(0,0,0,.2);padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 30px);display:grid;gap:14px;align-content:start}
+.dhead{display:flex;gap:12px;align-items:flex-start}
+.dhead h3{margin:0;font-size:20px;line-height:1.2;text-wrap:balance}
+.dhead .x{margin-left:auto;border:1px solid var(--line2);background:var(--surface);border-radius:8px;width:34px;height:34px;cursor:pointer;flex:none;font-size:18px;line-height:1}
+.facts{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--ink2)}
+.facts b{color:var(--ink);font-weight:600}
+.stages{display:grid;gap:6px}
+.stg{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:6px 8px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.stg .k{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.stg .w{font-size:11px;color:var(--ink3);margin-left:6px}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:5px 9px;font-size:12px;cursor:pointer;color:var(--ink2);border-right:1px solid var(--line2)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"][data-v="Done"]{background:var(--ok);color:#fff}
+.seg button[aria-pressed="true"][data-v="In progress"]{background:var(--hold);color:#fff}
+.seg button[aria-pressed="true"][data-v="Not started"]{background:var(--idle-bg);color:var(--ink)}
+.seg button[aria-pressed="true"][data-v="N/A"]{background:var(--line2);color:var(--ink)}
+.seg button:disabled{cursor:not-allowed}
+@media (max-width:520px){.stg{grid-template-columns:1fr}.stg .k{display:none}.seg button{padding:5px 7px}}
+.toggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px}
+.toggle input{width:16px;height:16px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:6px;z-index:60;max-width:280px;line-height:1.35}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:13px;z-index:70}
+.confirm{display:inline-flex;gap:6px;align-items:center;font-size:12px}
+.over{color:var(--bad);font-weight:600}
+@media (prefers-reduced-motion:no-preference){.bar i,.hbar .track i{transition:width .4s ease}}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">SL</div>
+      <div>
+        <h1>Heritage CCTV Rollout</h1>
+        <p>Ministry of Culture · 34 heritage sites · SmartLife</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span>Status date <b id="mToday">-</b></span>
+      <span>Start <b id="mStart">-</b></span>
+      <span>Planned finish <b id="mFinish">-</b></span>
+      <span class="live"><span class="dot" id="liveDot"></span><span id="liveTxt">Connecting…</span></span>
+    </div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="dash" aria-selected="true">Dashboard</button>
+      <button role="tab" data-tab="sites" aria-selected="false">Sites</button>
+      <button role="tab" data-tab="log" aria-selected="false">Daily log</button>
+      <button role="tab" data-tab="mat" aria-selected="false">Materials</button>
+      <button role="tab" data-tab="iss" aria-selected="false">Issues<span class="badge" id="issBadge" hidden></span></button>
+      <button role="tab" data-tab="set" aria-selected="false">Settings</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="notice" id="notice" hidden></div>
+  <section id="v-dash"></section>
+  <section id="v-sites" hidden></section>
+  <section id="v-log" hidden></section>
+  <section id="v-mat" hidden></section>
+  <section id="v-iss" hidden></section>
+  <section id="v-set" hidden></section>
+</main>
+<div id="drawerRoot"></div>
+<div class="tip" id="tip" hidden></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+"use strict";
+const use = n => (window.claude && typeof window.claude.use === "function") ? window.claude.use(n).catch(()=>null) : Promise.resolve(null);
+/* ================= constants ================= */
+const STAGES = [
+  ["survey","Site survey"],["layout","Layout approved"],["materials","Materials on site"],["cabling","Containment & cabling"],
+  ["rack","Rack & equipment"],["cameras","Cameras installed"],["config","Configuration"],["testing","Testing & commissioning"],
+  ["training","Operator training"],["handover","Handover signed"],["asbuilt","As-built submitted"]];
+const SV = ["Not started","In progress","Done","N/A"];
+const STATUS = ["Completed","In progress","Delayed","On hold","Not started"];
+const MATS = [["cams","Cameras"],["nvr","NVR"],["hdd","10 TB HDD"],["sw","PoE switch"],["fpp","Fibre panel"],["ups","UPS"],["pc","Workstation"],["tv","4K display"],["rack","18U rack"],["cat6","CAT6 (m)"]];
+const ACTIVITIES = STAGES.map(s=>s[1]).concat(["Travel / mobilisation","Snag rectification"]);
+const CATS = ["Access / permit","Site readiness","Power","Material","Design change","Heritage / civil","Safety","Client approval","Other"];
+const DEFAULT_W = {survey:5,layout:5,materials:10,cabling:15,rack:10,cameras:20,config:10,testing:10,training:5,handover:5,asbuilt:5};
+
+/* ================= state ================= */
+const S = { sites:{}, settings:null, logs:[], issues:[], db:null, user:null, me:null, canWrite:true, loaded:{sites:false}, tab:"dash",
+  filt:{status:"All",team:"All",q:""}, logFilt:"All", issFilt:"Open", open:null, confirm:null };
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => (Number(n)||0).toLocaleString("en-US");
+const pct = x => Math.round((x||0)*100) + "%";
+const teamColor = t => `var(--t${t})`;
+
+/* ================= dates (working week Sun-Thu) ================= */
+const toD = iso => { if(!iso) return null; const [y,m,d] = iso.split("-").map(Number); return new Date(Date.UTC(y,m-1,d)); };
+const iso = d => d.toISOString().slice(0,10);
+const isWE = d => { const w = d.getUTCDay(); return w === 5 || w === 6; };
+function workday(startIso, k){ let d = toD(startIso); if(!d) return null; while(k > 0){ d = new Date(d.getTime()+864e5); if(!isWE(d)) k--; } return d; }
+function netWD(a, b){ let n = 0, d = new Date(a.getTime()); while(d <= b){ if(!isWE(d)) n++; d = new Date(d.getTime()+864e5); } return n; }
+const todayD = () => { const t = new Date(); return new Date(Date.UTC(t.getFullYear(), t.getMonth(), t.getDate())); };
+const dShort = d => d ? d.toLocaleDateString("en-GB",{day:"2-digit",month:"short",timeZone:"UTC"}) : "-";
+const dLong = d => d ? d.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"UTC"}) : "-";
+
+/* ================= derived ================= */
+const weights = () => (S.settings && S.settings.weights) || DEFAULT_W;
+const startIso = () => (S.settings && S.settings.startDate) || "2026-10-04";
+function planned(s){ return { start: workday(startIso(), s.startWD-1), end: workday(startIso(), s.endWD-1) }; }
+function progress(s){
+  const w = weights(); let tot = 0, got = 0;
+  for(const [k] of STAGES){ const wt = Number(w[k])||0; tot += wt; const v = (s.stages||{})[k];
+    got += wt * (v === "Done" || v === "N/A" ? 1 : v === "In progress" ? .5 : 0); }
+  return tot ? got/tot : 0;
+}
+function status(s){
+  if(s.onHold) return "On hold";
+  if((s.stages||{}).handover === "Done") return "Completed";
+  const p = planned(s);
+  if(p.end && todayD() > p.end) return "Delayed";
+  return progress(s) > 0 ? "In progress" : "Not started";
+}
+function delay(s){
+  const p = planned(s); if(!p.end) return null;
+  if(s.actualFinish){ const f = toD(s.actualFinish); return f > p.end ? netWD(p.end, f) - 1 : 0; }
+  if((s.stages||{}).handover !== "Done" && todayD() > p.end) return netWD(p.end, todayD()) - 1;
+  return null;
+}
+function camsInstalled(s){ const n = S.logs.filter(l => l.site === s.n).reduce((a,l) => a + (Number(l.cams)||0), 0); return Math.min(n, s.cams); }
+function openIssues(n){ return S.issues.filter(i => i.site === n && i.status !== "Closed"); }
+function matPct(s){ let a = 0, c = 0; for(const [k] of MATS){ const r = (s.required||{})[k]||0; if(r > 0){ c++; a += Math.min(1, ((s.delivered||{})[k]||0)/r); } } return c ? a/c : 1; }
+const siteList = () => Object.values(S.sites).sort((a,b) => a.n - b.n);
+function totals(){
+  const L = siteList(); const cams = L.reduce((a,s)=>a+s.cams,0);
+  const earned = L.reduce((a,s)=>a+progress(s)*s.value,0), value = L.reduce((a,s)=>a+s.value,0);
+  const overall = cams ? L.reduce((a,s)=>a+progress(s)*s.cams,0)/cams : 0;
+  const by = {}; STATUS.forEach(k=>by[k]=0); L.forEach(s=>by[status(s)]++);
+  const planEnd = L.reduce((m,s)=>{ const e = planned(s).end; return !m || (e && e > m) ? e : m; }, null);
+  return { L, cams, installed: L.reduce((a,s)=>a+camsInstalled(s),0), earned, value, overall, by,
+    invoiced: L.reduce((a,s)=>a+(Number(s.invoiceAmount)||0),0), nInvoiced: L.filter(s=>s.invoiced).length,
+    mat: L.length ? L.reduce((a,s)=>a+matPct(s),0)/L.length : 0,
+    openIss: S.issues.filter(i=>i.status!=="Closed").length, highIss: S.issues.filter(i=>i.status!=="Closed"&&i.priority==="High").length,
+    finish: planEnd ? workday(iso(planEnd), 5) : null };
+}
+
+/* ================= writes (one at a time per document) ================= */
+const queues = {};
+function write(path, fn){
+  if(!S.db){ toast("Not connected - changes can't be saved here."); return Promise.resolve(); }
+  const run = () => fn(S.db.doc(path)).catch(e => { toast(e && e.code === "invalid_argument" ? "You have view-only access." : "Couldn't save - please try again."); if(e && e.code==="invalid_argument"){ S.canWrite=false; render(); } });
+  queues[path] = (queues[path] || Promise.resolve()).then(run, run);
+  return queues[path];
+}
+const stamp = () => ({ updatedAt: new Date().toISOString(), updatedBy: S.me || null });
+function updSite(n, patch){ const s = S.sites[n]; if(!s) return; deepMerge(s, patch); render(); return write(`sites/s${String(n).padStart(2,"0")}`, r => r.update({...patch, ...stamp()})); }
+function deepMerge(t, p){ for(const k in p){ if(p[k] && typeof p[k]==="object" && !Array.isArray(p[k])){ t[k] = t[k] && typeof t[k]==="object" ? {...t[k]} : {}; deepMerge(t[k], p[k]); } else t[k] = p[k]; } }
+
+let toastT; function toast(m){ const t = $("#toast"); t.textContent = m; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(()=>t.hidden = true, 2600); }
+
+/* ================= rendering helpers ================= */
+const slug = v => String(v).replace(/[^a-z]/gi,"").toLowerCase();
+const pill = st => `<span class="pill p-${slug(st)}">${esc(st)}</span>`;
+const teamTag = t => `<span class="team"><i style="background:${teamColor(t)}"></i>Team ${t}</span>`;
+const stageBar = s => `<span class="stagebar" aria-label="Stages">${STAGES.map(([k,l])=>`<i data-v="${esc((s.stages||{})[k]||"Not started")}" title="${esc(l)}: ${esc((s.stages||{})[k]||"Not started")}"></i>`).join("")}</span>`;
+const mini = (v, color) => `<span class="mini"><span class="bar"><i style="width:${Math.round(v*100)}%${color?`;background:${color}`:""}"></i></span><span>${pct(v)}</span></span>`;
+const dis = () => S.canWrite ? "" : "disabled";
+
+/* ================= views ================= */
+function vDash(){
+  const T = totals(); if(!T.L.length) return `<div class="panel"><div class="empty">No sites loaded yet.</div></div>`;
+  const attn = T.L.filter(s=>["Delayed","On hold"].includes(status(s)) || openIssues(s.n).some(i=>i.priority==="High"));
+  const overdue = S.issues.filter(i=>i.status!=="Closed" && i.due && toD(i.due) < todayD());
+  const nextUp = T.L.filter(s=>status(s)==="Not started").sort((a,b)=>a.startWD-b.startWD).slice(0,5);
+  return `
+  <div class="hero">
+    <div class="panel overall">
+      <h2>Overall progress <span class="sub">weighted by cameras</span></h2>
+      <div class="big num">${Math.round(T.overall*100)}<small>%</small></div>
+      <div class="bar" role="img" aria-label="Overall progress ${pct(T.overall)}"><i style="width:${T.overall*100}%"></i></div>
+      <div class="foot"><span><b class="num">${T.by.Completed}</b> of ${T.L.length} sites handed over</span><span>Finish ${dLong(T.finish)}</span></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi ok"><span class="l">Completed</span><span class="v num">${T.by.Completed}</span><span class="s">sites handed over</span></div>
+      <div class="kpi prog"><span class="l">In progress</span><span class="v num">${T.by["In progress"]}</span><span class="s">sites with work started</span></div>
+      <div class="kpi bad"><span class="l">Delayed</span><span class="v num">${T.by.Delayed}</span><span class="s">past planned finish</span></div>
+      <div class="kpi"><span class="l">Not started</span><span class="v num">${T.by["Not started"]}</span><span class="s">on hold: ${T.by["On hold"]}</span></div>
+      <div class="kpi"><span class="l">Cameras installed</span><span class="v num">${fmt(T.installed)}</span><span class="s">of ${fmt(T.cams)} (${pct(T.cams?T.installed/T.cams:0)})</span></div>
+      <div class="kpi"><span class="l">Earned value</span><span class="v num">${fmt(Math.round(T.earned))}</span><span class="s">SAR of ${fmt(T.value)} excl. VAT</span></div>
+      <div class="kpi"><span class="l">Invoiced</span><span class="v num">${fmt(T.invoiced)}</span><span class="s">SAR · ${T.nInvoiced} sites</span></div>
+      <div class="kpi ${T.openIss?"hold":""}"><span class="l">Open issues</span><span class="v num">${T.openIss}</span><span class="s">high priority: ${T.highIss}</span></div>
+      <div class="kpi"><span class="l">Material delivered</span><span class="v num">${pct(T.mat)}</span><span class="s">average across sites</span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Installation timeline <span class="sub">planned 3-day windows, filled by actual progress · click a site to update it</span></h2>
+    <div class="gantt">${gantt(T.L)}</div>
+    <div class="legend">${[1,2,3,4].map(t=>`<span><i style="background:${teamColor(t)}"></i>Team ${t}</span>`).join("")}
+      <span><i style="background:var(--surface2);border:1px solid var(--line2)"></i>Planned window</span>
+      <span><i style="background:var(--accent);width:2px;height:12px"></i>Today</span></div>
+  </div>
+
+  <div class="grid3">
+    <div class="panel"><h2>Sites by status</h2>${donut(T)}</div>
+    <div class="panel"><h2>Progress by team</h2><div class="hbars">${[1,2,3,4].map(t=>{ const L=T.L.filter(s=>s.team===t); const c=L.reduce((a,s)=>a+s.cams,0); const p=c?L.reduce((a,s)=>a+progress(s)*s.cams,0)/c:0; const done=L.filter(s=>status(s)==="Completed").length;
+      return `<div class="hbar"><span>${teamTag(t)} <span class="ar" style="direction:ltr">${done}/${L.length}</span></span><span class="track"><i style="width:${p*100}%;background:${teamColor(t)}"></i></span><b class="num">${pct(p)}</b></div>`; }).join("")}</div></div>
+    <div class="panel"><h2>Stage completion <span class="sub">sites done</span></h2><div class="hbars">${STAGES.map(([k,l])=>{ const d=T.L.filter(s=>["Done","N/A"].includes((s.stages||{})[k])).length; const ip=T.L.filter(s=>(s.stages||{})[k]==="In progress").length;
+      return `<div class="hbar" title="${esc(l)}: ${d} done, ${ip} in progress"><span>${esc(l)}</span><span class="track"><i style="width:${d/T.L.length*100}%;background:var(--ok)"></i><i style="width:${ip/T.L.length*100}%;background:var(--hold)"></i></span><b class="num">${d}</b></div>`; }).join("")}</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel"><h2>Needs attention</h2><div class="attn">${attn.length ? attn.map(s=>`<div class="row" data-site="${s.n}" tabindex="0"><span class="mono">${String(s.n).padStart(2,"0")}</span><div class="t"><div class="sname">${esc(s.en)}</div><div style="font-size:12px;color:var(--ink3)">${openIssues(s.n).length} open issue(s)${delay(s)?` · ${delay(s)} working days late`:""}</div></div>${pill(status(s))}</div>`).join("") : `<div class="empty">Nothing delayed or on hold.</div>`}
+      ${overdue.length ? `<div style="margin-top:6px;font-size:12px" class="over">${overdue.length} issue(s) past their due date - see Issues.</div>` : ""}</div></div>
+    <div class="panel"><h2>Next sites to start</h2><div class="attn">${nextUp.length ? nextUp.map(s=>{ const p=planned(s); return `<div class="row" data-site="${s.n}" tabindex="0"><span class="mono">${String(s.n).padStart(2,"0")}</span><div class="t"><div class="sname">${esc(s.en)}</div><div style="font-size:12px;color:var(--ink3)">${dShort(p.start)} - ${dShort(p.end)} · ${s.cams} cameras · ${s.days} days</div></div>${teamTag(s.team)}</div>`; }).join("") : `<div class="empty">All sites have started.</div>`}</div></div>
+  </div>`;
+}
+
+function gantt(L){
+  const plans = L.map(s=>({s, p:planned(s)}));
+  const t0 = toD(startIso()); const tEnd = plans.reduce((m,x)=>x.p.end>m?x.p.end:m, t0);
+  const first = plans.reduce((m,x)=>x.p.start<m?x.p.start:m, tEnd);
+  const from = new Date(first.getTime() - 3*864e5), to = new Date(tEnd.getTime() + 6*864e5);
+  const days = Math.round((to-from)/864e5); const pxd = 14, lw = 250, rh = 22, top = 26;
+  const W = lw + days*pxd + 10, H = top + L.length*rh + 8;
+  const X = d => lw + Math.round((d-from)/864e5)*pxd;
+  let g = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Installation timeline for 34 sites">`;
+  for(let i=0;i<days;i++){ const d = new Date(from.getTime()+i*864e5); if(isWE(d)) g += `<rect x="${lw+i*pxd}" y="${top-4}" width="${pxd}" height="${H-top}" fill="var(--surface2)"/>`;
+    if(d.getUTCDay()===0){ g += `<line x1="${lw+i*pxd}" x2="${lw+i*pxd}" y1="${top-4}" y2="${H}" stroke="var(--line)"/><text x="${lw+i*pxd+3}" y="14">${dShort(d)}</text>`; } }
+  plans.forEach(({s,p},i)=>{ const y = top + i*rh; const st = status(s); const pr = progress(s);
+    g += `<g class="gs" data-site="${s.n}" style="cursor:pointer"><rect x="0" y="${y}" width="${W}" height="${rh}" fill="transparent"/>
+      <text class="lbl" x="4" y="${y+15}">${String(s.n).padStart(2,"0")}  ${esc(s.en.length>34?s.en.slice(0,33)+"…":s.en)}</text>`;
+    const x1 = X(p.start), w = X(new Date(p.end.getTime()+864e5)) - x1;
+    g += `<rect x="${x1}" y="${y+4}" width="${w}" height="${rh-8}" rx="3" fill="var(--surface2)" stroke="${teamColor(s.team)}" stroke-width="1.2"/>`;
+    if(pr>0) g += `<rect x="${x1}" y="${y+4}" width="${Math.max(3,w*pr)}" height="${rh-8}" rx="3" fill="${teamColor(s.team)}"/>`;
+    const mark = st==="Delayed"?"var(--bad)":st==="On hold"?"var(--hold)":st==="Completed"?"var(--ok)":null;
+    if(mark) g += `<circle cx="${x1+w+8}" cy="${y+rh/2}" r="4" fill="${mark}"/>`;
+    g += `<title>${esc(s.en)} - Team ${s.team}\n${dShort(p.start)} to ${dShort(p.end)} (${s.days} working days)\n${pct(pr)} complete · ${st}</title></g>`; });
+  const td = todayD(); if(td>=from && td<=to){ const x = X(td)+pxd/2; g += `<line x1="${x}" x2="${x}" y1="${top-6}" y2="${H}" stroke="var(--accent)" stroke-width="2"/><text x="${x+4}" y="${top-8}" style="fill:var(--accent);font-weight:600">Today</text>`; }
+  return g + `</svg>`;
+}
+
+function donut(T){
+  const cols = {"Completed":"var(--ok)","In progress":"var(--prog)","Delayed":"var(--bad)","On hold":"var(--hold)","Not started":"var(--line2)"};
+  const n = T.L.length, R = 52, C = 2*Math.PI*R; let off = 0, segs = "";
+  STATUS.forEach(k=>{ const v = T.by[k]; if(!v) return; const len = v/n*C; segs += `<circle r="${R}" cx="70" cy="70" fill="none" stroke="${cols[k]}" stroke-width="18" stroke-dasharray="${Math.max(0,len-2)} ${C}" stroke-dashoffset="${-off}" transform="rotate(-90 70 70)"><title>${k}: ${v}</title></circle>`; off += len; });
+  return `<div class="donut"><svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="Sites by status">${segs}<text x="70" y="68" text-anchor="middle" style="font-size:26px;font-weight:600;fill:var(--ink)">${n}</text><text x="70" y="86" text-anchor="middle" style="font-size:11px;fill:var(--ink3)">sites</text></svg>
+    <ul>${STATUS.map(k=>`<li>${pill(k)}<b class="num">${T.by[k]}</b></li>`).join("")}</ul></div>`;
+}
+
+function vSites(){
+  const L = siteList(); const f = S.filt; const q = f.q.trim().toLowerCase();
+  const rows = L.filter(s => (f.status==="All"||status(s)===f.status) && (f.team==="All"||s.team===+f.team) && (!q || s.en.toLowerCase().includes(q) || s.ar.includes(f.q.trim()) || String(s.n)===q));
+  return `<div class="panel">
+    <div class="toolbar" style="margin-bottom:12px">
+      ${["All",...STATUS].map(k=>`<button class="chip" data-fs="${k}" aria-pressed="${f.status===k}">${k}${k!=="All"?` · ${L.filter(s=>status(s)===k).length}`:""}</button>`).join("")}
+      <span class="spacer"></span>
+      <select class="search" id="fTeam" style="max-width:130px" aria-label="Team"><option value="All">All teams</option>${[1,2,3,4].map(t=>`<option value="${t}" ${f.team==t?"selected":""}>Team ${t}</option>`).join("")}</select>
+      <input class="search" id="fQ" type="search" placeholder="Search site…" value="${esc(f.q)}" aria-label="Search sites">
+      <button class="btn" id="exportCsv">Export CSV</button>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Site</th><th>Team</th><th class="n">Cameras</th><th>Planned</th><th>Stages</th><th>Progress</th><th>Status</th><th class="n">Delay</th><th class="n">Issues</th><th>Engineer</th></tr></thead>
+      <tbody>${rows.map(s=>{ const p=planned(s); const d=delay(s); const oi=openIssues(s.n).length; return `<tr class="click" data-site="${s.n}" tabindex="0">
+        <td class="mono">${String(s.n).padStart(2,"0")}</td>
+        <td><div class="sname">${esc(s.en)}</div><div class="ar">${esc(s.ar)}</div></td>
+        <td>${teamTag(s.team)}</td>
+        <td class="n num">${camsInstalled(s)}/${s.cams}</td>
+        <td class="num" style="white-space:nowrap">${dShort(p.start)} - ${dShort(p.end)}</td>
+        <td>${stageBar(s)}</td><td>${mini(progress(s), teamColor(s.team))}</td><td>${pill(status(s))}</td>
+        <td class="n num ${d>0?"over":""}">${d==null?"":d>0?`+${d}d`:"0"}</td>
+        <td class="n num ${oi?"over":""}">${oi||""}</td>
+        <td>${esc(s.engineer||"")}</td></tr>`; }).join("") || `<tr><td colspan="11" class="empty">No sites match these filters.</td></tr>`}</tbody>
+    </table></div></div>`;
+}
+
+function vLog(){
+  const L = siteList(); const today = iso(todayD());
+  const rows = S.logs.filter(l => S.logFilt==="All" || l.site===+S.logFilt).sort((a,b)=> (b.date||"").localeCompare(a.date||"") || (b.createdAt||"").localeCompare(a.createdAt||""));
+  return `<div class="panel"><h2>Add today's progress</h2>
+    <form class="form" id="logForm">
+      <div class="field"><label for="lDate">Date</label><input id="lDate" type="date" value="${today}" required ${dis()}></div>
+      <div class="field" style="grid-column:span 2"><label for="lSite">Site</label><select id="lSite" required ${dis()}><option value="">Select site…</option>${L.map(s=>`<option value="${s.n}">${String(s.n).padStart(2,"0")} - ${esc(s.en)}</option>`).join("")}</select></div>
+      <div class="field"><label for="lAct">Activity</label><select id="lAct" ${dis()}>${ACTIVITIES.map(a=>`<option>${esc(a)}</option>`).join("")}</select></div>
+      <div class="field"><label for="lMan">Manpower</label><input id="lMan" type="number" min="0" step="1" value="4" ${dis()}></div>
+      <div class="field"><label for="lCams">Cameras installed</label><input id="lCams" type="number" min="0" step="1" value="0" ${dis()}></div>
+      <div class="field wide"><label for="lNotes">Work done / notes</label><input id="lNotes" type="text" placeholder="e.g. Cabling ground floor done, 12 domes mounted" ${dis()}></div>
+      <div><button class="btn primary" type="submit" ${dis()}>Add entry</button></div>
+    </form></div>
+  <div class="panel"><div class="toolbar" style="margin-bottom:12px"><h2 style="margin:0">Progress entries <span class="sub">${rows.length} shown</span></h2><span class="spacer"></span>
+    <select class="search" id="logF" style="max-width:320px" aria-label="Filter by site"><option value="All">All sites</option>${L.map(s=>`<option value="${s.n}" ${S.logFilt==s.n?"selected":""}>${String(s.n).padStart(2,"0")} - ${esc(s.en)}</option>`).join("")}</select></div>
+    <div class="tablewrap"><table><thead><tr><th>Date</th><th>Site</th><th>Team</th><th>Activity</th><th class="n">Manpower</th><th class="n">Cameras</th><th>Notes</th><th></th></tr></thead>
+    <tbody>${rows.map(l=>{ const s=S.sites[l.site]; return `<tr><td class="num" style="white-space:nowrap">${dShort(toD(l.date))}</td><td><span class="mono">${String(l.site).padStart(2,"0")}</span> ${esc(s?s.en:"")}</td><td>${s?teamTag(s.team):""}</td><td>${esc(l.activity)}</td><td class="n num">${l.manpower||""}</td><td class="n num">${l.cams||""}</td><td>${esc(l.notes)}</td>
+      <td>${S.canWrite?(S.confirm==="log:"+l.id?`<span class="confirm">Delete? <button class="btn danger" data-dellog="${l.id}">Yes</button><button class="btn" data-cancel>No</button></span>`:`<button class="btn" data-askdel="log:${l.id}" aria-label="Delete entry">✕</button>`):""}</td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">No progress entries yet. Site engineers add one line per site per day.</td></tr>`}</tbody></table></div></div>`;
+}
+
+function vMat(){
+  const L = siteList(); const tot = {}; MATS.forEach(([k])=>tot[k]={r:0,d:0}); L.forEach(s=>MATS.forEach(([k])=>{ tot[k].r+=(s.required||{})[k]||0; tot[k].d+=Math.min((s.delivered||{})[k]||0,(s.required||{})[k]||0); }));
+  return `<div class="panel"><h2>Material delivery <span class="sub">enter delivered quantities per site; required quantities come from the BOQ</span></h2>
+    <div class="kpis" style="margin-bottom:14px">${MATS.map(([k,l])=>`<div class="kpi"><span class="l">${l}</span><span class="v num" style="font-size:20px">${fmt(tot[k].d)}<span style="font-size:13px;color:var(--ink3)"> / ${fmt(tot[k].r)}</span></span>${mini(tot[k].r?tot[k].d/tot[k].r:1)}</div>`).join("")}</div>
+    <div class="tablewrap"><table><thead><tr><th>#</th><th>Site</th>${MATS.map(([,l])=>`<th class="n">${l}</th>`).join("")}<th>Delivered</th></tr></thead>
+    <tbody>${L.map(s=>`<tr><td class="mono">${String(s.n).padStart(2,"0")}</td><td class="sname" style="min-width:200px">${esc(s.en)}</td>
+      ${MATS.map(([k])=>{ const r=(s.required||{})[k]||0, d=(s.delivered||{})[k]||0; return r ? `<td class="n num" style="white-space:nowrap"><input class="cellin num" type="number" min="0" data-mat="${s.n}:${k}" value="${d}" aria-label="${k} delivered" ${dis()} style="${d>=r?"color:var(--ok);font-weight:600":""}"> / ${fmt(r)}</td>` : `<td class="n" style="color:var(--ink3)">-</td>`; }).join("")}
+      <td>${mini(matPct(s))}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+
+function vIss(){
+  const L = siteList(); const today = iso(todayD());
+  const rows = S.issues.filter(i => S.issFilt==="All" || (S.issFilt==="Open" ? i.status!=="Closed" : i.status==="Closed")).sort((a,b)=>({High:0,Medium:1,Low:2}[a.priority]-({High:0,Medium:1,Low:2}[b.priority])) || (a.due||"9").localeCompare(b.due||"9"));
+  return `<div class="panel"><h2>Log an issue</h2>
+    <form class="form" id="issForm">
+      <div class="field" style="grid-column:span 2"><label for="iSite">Site</label><select id="iSite" required ${dis()}><option value="">Select site…</option>${L.map(s=>`<option value="${s.n}">${String(s.n).padStart(2,"0")} - ${esc(s.en)}</option>`).join("")}</select></div>
+      <div class="field"><label for="iCat">Category</label><select id="iCat" ${dis()}>${CATS.map(c=>`<option>${c}</option>`).join("")}</select></div>
+      <div class="field"><label for="iPri">Priority</label><select id="iPri" ${dis()}><option>High</option><option selected>Medium</option><option>Low</option></select></div>
+      <div class="field"><label for="iOwner">Owner</label><input id="iOwner" type="text" placeholder="Who follows up" ${dis()}></div>
+      <div class="field"><label for="iDue">Due date</label><input id="iDue" type="date" ${dis()}></div>
+      <div class="field wide"><label for="iDesc">Description</label><input id="iDesc" type="text" required placeholder="e.g. Access permit for gallery 2 not issued yet" ${dis()}></div>
+      <div><button class="btn primary" type="submit" ${dis()}>Add issue</button></div>
+    </form></div>
+  <div class="panel"><div class="toolbar" style="margin-bottom:12px"><h2 style="margin:0">Issues & risks</h2><span class="spacer"></span>${["Open","Closed","All"].map(k=>`<button class="chip" data-if="${k}" aria-pressed="${S.issFilt===k}">${k}</button>`).join("")}</div>
+    <div class="tablewrap"><table><thead><tr><th>Raised</th><th>Site</th><th>Category</th><th>Description</th><th>Priority</th><th>Owner</th><th>Due</th><th>Status</th><th class="n">Days open</th><th></th></tr></thead>
+    <tbody>${rows.map(i=>{ const s=S.sites[i.site]; const od = i.status!=="Closed" && i.due && toD(i.due) < todayD(); const days = Math.round(((i.status==="Closed"&&i.closedDate?toD(i.closedDate):todayD()) - toD(i.date))/864e5);
+      return `<tr><td class="num" style="white-space:nowrap">${dShort(toD(i.date))}</td><td style="min-width:170px"><span class="mono">${String(i.site).padStart(2,"0")}</span> ${esc(s?s.en:"")}</td><td>${esc(i.category)}</td><td style="min-width:220px">${esc(i.desc)}</td>
+        <td><span class="pill p-${slug(i.priority)}">${esc(i.priority)}</span></td><td>${esc(i.owner)}</td>
+        <td class="num ${od?"over":""}" style="white-space:nowrap">${i.due?dShort(toD(i.due)):""}${od?" · overdue":""}</td>
+        <td><select class="cellsel" data-istat="${i.id}" ${dis()} aria-label="Issue status">${["Open","In progress","Closed"].map(v=>`<option ${i.status===v?"selected":""}>${v}</option>`).join("")}</select></td>
+        <td class="n num">${isFinite(days)?days:""}</td>
+        <td>${S.canWrite?(S.confirm==="iss:"+i.id?`<span class="confirm">Delete? <button class="btn danger" data-deliss="${i.id}">Yes</button><button class="btn" data-cancel>No</button></span>`:`<button class="btn" data-askdel="iss:${i.id}" aria-label="Delete issue">✕</button>`):""}</td></tr>`; }).join("") || `<tr><td colspan="10" class="empty">No ${S.issFilt==="All"?"":S.issFilt.toLowerCase()+" "}issues.</td></tr>`}</tbody></table></div></div>`;
+}
+
+function vSet(){
+  const w = weights(); const tot = STAGES.reduce((a,[k])=>a+(Number(w[k])||0),0);
+  return `<div class="panel"><h2>Project settings</h2>
+    <div class="form" style="max-width:640px">
+      <div class="field"><label for="sStart">Contract award / project start</label><input id="sStart" type="date" value="${esc(startIso())}" ${dis()}></div>
+      <div class="field" style="grid-column:span 2"><label>Working week</label><div style="padding:7px 0;color:var(--ink2)">Sunday - Thursday. Planned dates are working days counted from the start date.</div></div>
+    </div></div>
+  <div class="panel"><h2>Stage weights <span class="sub">how much each stage counts towards % complete · total ${tot}${tot!==100?' <span class="over">(should be 100)</span>':""}</span></h2>
+    <div class="form">${STAGES.map(([k,l])=>`<div class="field"><label for="w_${k}">${l}</label><input id="w_${k}" type="number" min="0" max="100" data-w="${k}" value="${Number(w[k])||0}" ${dis()}></div>`).join("")}</div>
+    <p style="color:var(--ink3);font-size:12px;margin:12px 0 0">Done or N/A counts 100% of a stage, In progress 50%, Not started 0%. A site is Completed when "Handover signed" is Done, and Delayed when today is past its planned finish and handover is not signed.</p></div>
+  <div class="panel"><h2>Data & backup <span class="sub">all updates are saved in this browser on this device</span></h2>
+    <p style="color:var(--ink2);font-size:13px;margin:0 0 12px">Export a backup regularly and send it to the project manager, or import a colleague's backup to see their latest updates. Importing replaces the data in this browser.</p>
+    <div class="toolbar"><button class="btn primary" id="bkExport">Export backup (JSON)</button>
+      <label class="btn" for="bkFile" style="display:inline-block">Import backup…</label><input id="bkFile" type="file" accept="application/json,.json" hidden>
+      ${S.confirm==="reset"?`<span class="confirm">Reset all data to the original plan? <button class="btn danger" id="bkResetYes">Yes, reset</button><button class="btn" data-cancel>No</button></span>`:`<button class="btn danger" data-askdel="reset">Reset data</button>`}</div></div>`;
+}
+
+function vDrawer(){
+  const s = S.sites[S.open]; if(!s) return "";
+  const p = planned(s); const w = weights();
+  const logs = S.logs.filter(l=>l.site===s.n).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,6);
+  const iss = S.issues.filter(i=>i.site===s.n && i.status!=="Closed");
+  return `<div class="scrim" data-close></div>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+    <div class="dhead"><div><div class="mono" style="color:var(--ink3);font-size:12px">SITE ${String(s.n).padStart(2,"0")}</div><h3 id="dTitle">${esc(s.en)}</h3><div class="ar" style="font-size:14px">${esc(s.ar)}</div></div><button class="x" data-close aria-label="Close">×</button></div>
+    <div class="facts">${teamTag(s.team)}<span>Planned <b>${dShort(p.start)} - ${dShort(p.end)}</b> (${s.days} working days)</span><span>Cameras <b class="num">${camsInstalled(s)}/${s.cams}</b></span><span>Value <b class="num">SAR ${fmt(s.value)}</b></span><span>${pill(status(s))}</span></div>
+    <div class="panel" style="padding:12px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h2 style="margin:0">Stages</h2><b class="num" style="font-size:18px;color:var(--brand)">${pct(progress(s))}</b></div>
+      <div class="bar" style="margin-bottom:10px"><i style="width:${progress(s)*100}%"></i></div>
+      <div class="stages">${STAGES.map(([k,l],i)=>{ const v=(s.stages||{})[k]||"Not started"; return `<div class="stg"><span class="k">${String(i+1).padStart(2,"0")}</span><span>${esc(l)}<span class="w">${Number(w[k])||0}%</span></span>
+        <span class="seg" role="group" aria-label="${esc(l)}">${SV.map(o=>`<button data-stage="${k}" data-v="${o}" aria-pressed="${v===o}" ${dis()}>${o==="Not started"?"Not started":o}</button>`).join("")}</span></div>`; }).join("")}</div></div>
+    <div class="panel" style="padding:12px"><h2>Site details</h2>
+      <div class="form">
+        <div class="field"><label for="dAS">Actual start</label><input id="dAS" type="date" data-f="actualStart" value="${esc(s.actualStart)}" ${dis()}></div>
+        <div class="field"><label for="dAF">Actual finish</label><input id="dAF" type="date" data-f="actualFinish" value="${esc(s.actualFinish)}" ${dis()}></div>
+        <div class="field"><label for="dEng">Site engineer</label><input id="dEng" type="text" data-f="engineer" value="${esc(s.engineer)}" ${dis()}></div>
+        <div class="field"><label for="dCert">Acceptance cert. no.</label><input id="dCert" type="text" data-f="cert" value="${esc(s.cert)}" ${dis()}></div>
+        <div class="field"><label for="dInv">Invoice amount (SAR)</label><input id="dInv" type="number" min="0" data-f="invoiceAmount" data-num value="${Number(s.invoiceAmount)||0}" ${dis()}></div>
+        <div class="field"><label>Flags</label><div style="display:flex;gap:14px;padding:6px 0;flex-wrap:wrap"><label class="toggle"><input type="checkbox" id="dHold" data-b="onHold" ${s.onHold?"checked":""} ${dis()}>On hold</label><label class="toggle"><input type="checkbox" id="dInvd" data-b="invoiced" ${s.invoiced?"checked":""} ${dis()}>Invoiced</label></div></div>
+        <div class="field wide"><label for="dRem">Remarks</label><textarea id="dRem" data-f="remarks" ${dis()}>${esc(s.remarks)}</textarea></div>
+      </div></div>
+    <div class="panel" style="padding:12px"><h2>Materials delivered</h2><div class="form">${MATS.map(([k,l])=>{ const r=(s.required||{})[k]||0; return r?`<div class="field"><label for="dm_${k}">${l} <span style="text-transform:none">/ ${fmt(r)}</span></label><input id="dm_${k}" type="number" min="0" data-mat="${s.n}:${k}" value="${(s.delivered||{})[k]||0}" ${dis()}></div>`:""; }).join("")}</div></div>
+    <div class="panel" style="padding:12px"><h2>Open issues <span class="sub">${iss.length}</span></h2>${iss.length?`<div class="attn">${iss.map(i=>`<div class="row" style="cursor:default"><span class="pill p-${slug(i.priority)}">${esc(i.priority)}</span><div class="t"><div>${esc(i.desc)}</div><div style="font-size:12px;color:var(--ink3)">${esc(i.category)}${i.owner?" · "+esc(i.owner):""}${i.due?" · due "+dShort(toD(i.due)):""}</div></div></div>`).join("")}</div>`:`<div class="empty">No open issues.</div>`}</div>
+    <div class="panel" style="padding:12px"><h2>Recent progress</h2>${logs.length?`<div class="tablewrap"><table><tbody>${logs.map(l=>`<tr><td class="num" style="white-space:nowrap">${dShort(toD(l.date))}</td><td>${esc(l.activity)}</td><td class="n num">${l.cams?l.cams+" cams":""}</td><td>${esc(l.notes)}</td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">No entries yet - add them in the Daily log.</div>`}</div>
+  </aside>`;
+}
+
+/* ================= render ================= */
+const VIEWS = {dash:vDash, sites:vSites, log:vLog, mat:vMat, iss:vIss, set:vSet};
+function render(){
+  const T = Object.keys(S.sites).length ? totals() : null;
+  $("#mToday").textContent = dLong(todayD()); $("#mStart").textContent = dLong(toD(startIso())); $("#mFinish").textContent = T ? dLong(T.finish) : "-";
+  const oi = S.issues.filter(i=>i.status!=="Closed").length; const b = $("#issBadge"); b.hidden = !oi; b.textContent = oi;
+  const active = document.activeElement; const keepId = active && active.id && (active.tagName==="INPUT"||active.tagName==="TEXTAREA"||active.tagName==="SELECT") ? active.id : null;
+  const inForm = active && active.closest && active.closest("#logForm,#issForm");
+  if(!inForm){ const el = $("#v-"+S.tab); el.innerHTML = VIEWS[S.tab](); }
+  const dr = $("#drawerRoot"); const inDrawer = active && active.closest && active.closest(".drawer") && keepId;
+  if(!inDrawer){ dr.innerHTML = S.open ? vDrawer() : ""; }
+  if(keepId && !inForm && !inDrawer){ const n = document.getElementById(keepId); if(n){ n.focus(); if(n.setSelectionRange && n.type==="search"){ const v=n.value.length; n.setSelectionRange(v,v); } } }
+}
+function setTab(t){ S.tab = t; S.confirm = null; document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===t)); for(const k in VIEWS) $("#v-"+k).hidden = k!==t; try{ localStorage.setItem("moc_tab", t); }catch(e){} render(); }
+
+/* ================= events ================= */
+document.addEventListener("click", e => {
+  const t = e.target.closest("button, [data-site], [data-close]"); if(!t) return;
+  if(t.closest("#tabs") && t.dataset.tab){ setTab(t.dataset.tab); return; }
+  if(t.hasAttribute("data-close")){ S.open = null; render(); return; }
+  if(t.dataset.fs){ S.filt.status = t.dataset.fs; render(); return; }
+  if(t.dataset.if){ S.issFilt = t.dataset.if; render(); return; }
+  if(t.dataset.stage && S.open){ updSite(S.open, {stages:{[t.dataset.stage]: t.dataset.v}}); return; }
+  if(t.hasAttribute("data-askdel")){ S.confirm = t.dataset.askdel; render(); return; }
+  if(t.hasAttribute("data-cancel")){ S.confirm = null; render(); return; }
+  if(t.dataset.dellog){ const id = t.dataset.dellog; S.logs = S.logs.filter(l=>l.id!==id); S.confirm=null; render(); write(`logs/${id}`, r=>r.delete()); toast("Entry deleted"); return; }
+  if(t.dataset.deliss){ const id = t.dataset.deliss; S.issues = S.issues.filter(l=>l.id!==id); S.confirm=null; render(); write(`issues/${id}`, r=>r.delete()); toast("Issue deleted"); return; }
+  if(t.id === "exportCsv"){ exportCsv(); return; }
+  if(t.id === "bkExport"){ window.__backup && window.__backup.exportJson(); toast("Backup exported"); return; }
+  if(t.id === "bkResetYes"){ S.confirm=null; window.__backup && window.__backup.reset(); toast("Data reset to the original plan"); return; }
+  const row = t.closest("[data-site]"); if(row && !t.closest(".drawer")){ S.open = +row.dataset.site; render(); const x = document.querySelector(".drawer .x"); if(x) x.focus(); }
+});
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape" && S.open){ S.open = null; render(); }
+  if((e.key === "Enter" || e.key === " ") && e.target.matches("tr[data-site], .row[data-site]")){ e.preventDefault(); S.open = +e.target.dataset.site; render(); }
+});
+document.addEventListener("input", e => { const t = e.target; if(t.id==="fQ"){ S.filt.q = t.value; render(); } });
+document.addEventListener("change", e => {
+  const t = e.target;
+  if(t.id==="bkFile" && t.files && t.files[0]){ window.__backup.importJson(t.files[0], ok => toast(ok ? "Backup imported" : "That file isn't a tracker backup.")); t.value=""; return; }
+  if(t.id==="fTeam"){ S.filt.team = t.value; render(); return; }
+  if(t.id==="logF"){ S.logFilt = t.value; render(); return; }
+  if(t.dataset.mat){ const [n,k] = t.dataset.mat.split(":"); const v = Math.max(0, Math.round(Number(t.value)||0)); updSite(+n, {delivered:{[k]:v}}); return; }
+  if(t.dataset.istat){ const i = S.issues.find(x=>x.id===t.dataset.istat); if(!i) return; const patch = {status:t.value, closedDate: t.value==="Closed" ? iso(todayD()) : ""}; Object.assign(i, patch); render(); write(`issues/${i.id}`, r=>r.update(patch)); return; }
+  if(S.open && t.dataset.f){ const v = t.hasAttribute("data-num") ? Math.max(0, Number(t.value)||0) : t.value.trim(); updSite(S.open, {[t.dataset.f]: v}); return; }
+  if(S.open && t.dataset.b){ updSite(S.open, {[t.dataset.b]: t.checked}); return; }
+  if(t.id==="sStart" && t.value){ S.settings = {...(S.settings||{}), startDate: t.value}; render(); write("settings/project", r=>r.set({...S.settings})); toast("Start date saved - planned dates updated"); return; }
+  if(t.dataset.w){ const w = {...weights(), [t.dataset.w]: Math.max(0, Number(t.value)||0)}; S.settings = {...(S.settings||{startDate:startIso()}), weights: w}; render(); write("settings/project", r=>r.set({...S.settings})); return; }
+});
+document.addEventListener("submit", e => {
+  e.preventDefault(); const f = e.target;
+  if(f.id==="logForm"){
+    const site = +$("#lSite").value; if(!site){ toast("Select a site first."); return; }
+    const rec = { date: $("#lDate").value, site, activity: $("#lAct").value, manpower: Math.max(0, +$("#lMan").value||0), cams: Math.max(0, +$("#lCams").value||0), notes: $("#lNotes").value.trim(), createdAt: new Date().toISOString(), by: S.me || null };
+    if(!S.db){ toast("Not connected - entry not saved."); return; }
+    const ref = S.db.collection("logs").doc(); S.logs.push({id: ref.id, ...rec}); $("#lNotes").value = ""; $("#lCams").value = 0; document.activeElement.blur(); render();
+    write(`logs/${ref.id}`, r=>r.set(rec).catch(err=>{ if(err&&err.code==="quota_exceeded") toast("Storage is full - delete old entries first."); throw err; })); toast("Progress entry added");
+  }
+  if(f.id==="issForm"){
+    const site = +$("#iSite").value, desc = $("#iDesc").value.trim(); if(!site || !desc){ toast("Select a site and describe the issue."); return; }
+    const rec = { date: iso(todayD()), site, category: $("#iCat").value, desc, priority: $("#iPri").value, owner: $("#iOwner").value.trim(), due: $("#iDue").value, status: "Open", closedDate: "", createdAt: new Date().toISOString(), by: S.me || null };
+    if(!S.db){ toast("Not connected - issue not saved."); return; }
+    const ref = S.db.collection("issues").doc(); S.issues.push({id: ref.id, ...rec}); $("#iDesc").value = ""; $("#iOwner").value = ""; document.activeElement.blur(); render();
+    write(`issues/${ref.id}`, r=>r.set(rec)); toast("Issue logged");
+  }
+});
+/* gantt tooltip */
+document.addEventListener("mousemove", e => { const g = e.target.closest && e.target.closest(".gs"); const tip = $("#tip");
+  if(!g){ tip.hidden = true; return; } const s = S.sites[+g.dataset.site]; if(!s){ tip.hidden = true; return; }
+  const p = planned(s); tip.innerHTML = `<b>${esc(s.en)}</b><br>Team ${s.team} · ${dShort(p.start)} - ${dShort(p.end)}<br>${pct(progress(s))} complete · ${status(s)}`;
+  tip.hidden = false; tip.style.left = Math.min(e.clientX + 14, innerWidth - 290) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+
+async function exportCsv(){
+  const head = ["Site #","Site","Arabic name","Team","Cameras (BOQ)","Cameras installed","Contract value (SAR)","Planned start","Planned finish",...STAGES.map(s=>s[1]),"% complete","Status","Delay (WD)","Actual start","Actual finish","On hold","Invoiced","Invoice amount","Open issues","Engineer","Remarks"];
+  const q = v => `"${String(v ?? "").replace(/"/g,'""')}"`;
+  const lines = [head.map(q).join(",")].concat(siteList().map(s=>{ const p = planned(s); return [s.n,s.en,s.ar,"Team "+s.team,s.cams,camsInstalled(s),s.value,iso(p.start),iso(p.end),...STAGES.map(([k])=>(s.stages||{})[k]||"Not started"),Math.round(progress(s)*100)+"%",status(s),delay(s)??"",s.actualStart,s.actualFinish,s.onHold?"Yes":"No",s.invoiced?"Yes":"No",s.invoiceAmount||0,openIssues(s.n).length,s.engineer,s.remarks].map(q).join(","); }));
+  const dl = await use("downloads");
+  if(!dl){ toast("Download isn't available in this view."); return; }
+  try{ const r = await dl.save({ filename: `MoC_CCTV_Site_Tracker_${iso(todayD())}.csv`, data: "﻿" + lines.join("\r\n") }); if(r && r.status==="saved") toast("CSV saved"); }
+  catch(err){ if(!err || err.code!=="declined") toast("Couldn't export the file."); }
+}
+
+/* ================= boot ================= */
+try{ const t = localStorage.getItem("moc_tab"); if(t && VIEWS[t]) S.tab = t; }catch(e){}
+setTab(S.tab);
+(async () => {
+  const [db, user] = await Promise.all([use("db"), use("user")]);
+  S.db = db; S.user = user;
+  if(user){ try{ S.me = await user.id(); const c = await user.can("data.write"); if(c === false){ S.canWrite = false; } }catch(e){} }
+  if(!db){ const n = $("#notice"); n.hidden = false; n.textContent = "Live data isn't available in this view. Open the tracker in Claude to see and update the project."; $("#liveTxt").textContent = "Offline"; render(); return; }
+  if(!S.canWrite){ const n = $("#notice"); n.hidden = false; n.textContent = "You have view-only access. Ask the project manager for Contributor access to update progress."; }
+  const onErr = () => { $("#liveDot").classList.remove("on"); $("#liveTxt").textContent = "Connection lost - reload to reconnect"; };
+  db.collection("sites").onSnapshot(snap => { const m = {}; snap.docs.forEach(d => { const v = d.data(); if(v && v.n) m[v.n] = JSON.parse(JSON.stringify(v)); }); S.sites = m; S.loaded.sites = true;
+    $("#liveDot").classList.add("on"); $("#liveTxt").textContent = "Saved in this browser"; render(); }, onErr);
+  db.doc("settings/project").onSnapshot(d => { S.settings = d.exists ? JSON.parse(JSON.stringify(d.data())) : null; render(); }, onErr);
+  db.collection("logs").onSnapshot(snap => { S.logs = snap.docs.map(d => ({id: d.id, ...d.data()})); render(); }, onErr);
+  db.collection("issues").onSnapshot(snap => { S.issues = snap.docs.map(d => ({id: d.id, ...d.data()})); render(); }, onErr);
+})();
+})();
+</script>
+
+</body>
+</html>
